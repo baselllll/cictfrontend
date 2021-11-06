@@ -1,0 +1,82 @@
+<section class="100vh" style="margin-top:10%">
+  <div class="container h-100">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-xl-7 col-lg-10 col-md-11">
+        <div class="card shadow-2-strong card-registration mb-5" style="border-radius: 10px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);">
+          <div class="card-body p-4 p-md-5">
+            <p class="text-center h1 fw-bold mb-5 mx-md-4">Sign up</p>
+            <form>
+              <div class="row">
+                <h5 class="pb-3 text-black-50">
+                  <i class="fal fa-person-sign mr-2"></i>Personal Information
+                </h5>
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <input #name type="text" id="firstName" class="form-control form-control-lg"
+                      placeholder="Full Name" />
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input #email type="email" id="emailAddress" class="form-control form-control-lg"
+                      placeholder="Email Address" />
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <input #city type="text" placeholder="Enter Your City"  class="form-control form-control-lg">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <input #bio type="text" name="bio" placeholder="Enter Your Bio"  class="form-control form-control-lg">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <input #skills  type="text" placeholder="Enter Your Skills like php,css,html,..."  class="form-control form-control-lg">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <label>Enter Experience Level</label>
+                  <select #Exper_level class="form-control form-control-lg">
+                    <option value="Junior">Junior</option>
+                    <option value="Senior">Senior</option>
+                    <option value="Mid_Senior">Mid_Senior</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 mb-4 pb-2">
+                  <label>Select The Job that wanted To Apply It</label>
+                   <select #apply_job class="form-control form-control-lg">
+                     <ng-container *ngFor="let item of availablejobs">
+                      <option value="{{ item.id }}">{{ item.title }}</option>
+                     </ng-container>
+                     
+                     
+                   </select>
+                </div>
+              </div>
+                
+              <div class="mt-4 pt-2">
+                <button class="btn btn-primary btn-lg w-100" (click)="submitRegisterForm(
+                  name.value,email.value,city.value,bio.value,skills.value, Exper_level.options[Exper_level.selectedIndex].value,apply_job.options[apply_job.selectedIndex].value
+                  )">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
